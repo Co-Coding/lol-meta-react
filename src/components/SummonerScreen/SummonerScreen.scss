@@ -1,0 +1,85 @@
+.main-div{
+  width: 1000px;
+  margin: 0;
+  margin: auto;
+}
+.grid {
+  background-color: #24252a;
+  margin: 1em;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 2px;
+  grid-template-columns: 115px 150px 150px 150px 150px 190px; /*columns widths*/
+  counter-reset: div;
+  color: #edf0f1;
+}
+
+.items {
+  display: table-cell;
+  padding: 10px;
+
+  img {
+    float: left;
+    padding: 1px;
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+  }
+}
+
+.summoner {
+  img {
+    padding: 1px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+}
+
+.teams {
+  width: 50%;
+  font-size: 12px;
+  float: left;
+  // border: 1px solid rgb(56, 51, 51);
+
+  img {
+    padding: 1px;
+    width: 22px;
+    height: 22px;
+    // object-fit: cover;
+  }
+
+  .participants {
+    display: flex;
+    width: 100%;
+
+    .summPointer{
+      cursor: pointer;
+    }
+  }
+  .left {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 22px;
+    height: 22px;
+    position: relative;
+  }
+  .right {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 76px;
+  }
+
+  
+}
+
+// .answer {
+//   display: none;
+// }
+
+//  .open .answer {
+//    display: block;
+//  }
