@@ -1,12 +1,11 @@
-
+import "./MatchDetails.scss"
 export default function MatchDetails(props) {
 
-    console.log(props)
-
-    const { index } = props
+    const { summData } = props
+    console.log('match details: ' + summData)
     return (
-        <div>
-            <h5>MATCH DETAILS {index} </h5>
+        <div class="matchDetails">
+            <h5>MATCH DETAILS {summData.info.gameDurationMinSec} </h5>
         </div>
     )
 }

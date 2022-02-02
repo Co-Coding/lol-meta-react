@@ -20,11 +20,10 @@ export function SummonerDetails(props) {
     }
 
     const matchDetails = (index) => {
-         setShowMatchDetails(prev => {
-            return {...prev, [index]: !prev[index] }
-         })
+        setShowMatchDetails(prev => {
+            return { ...prev, [index]: !prev[index] }
+        })
     }
-
 
     return (
         <div>
@@ -33,36 +32,61 @@ export function SummonerDetails(props) {
                     return (
                         <div>
                             <div class="grid" onClick={() => matchDetails(index)}>
+                                <div>
+                                    {data.info.participants.filter(participant => participant.summonerName.toLowerCase() === summonerName.toLowerCase()).map(filteredSumm => {
+                                        return (
+                                            <div class="items">
+                                                <img src={filteredSumm.item0}></img>
+                                                <img src={filteredSumm.item1}></img>
+                                                <img src={filteredSumm.item2}></img>
+                                                <img src={filteredSumm.item3}></img>
+                                                <img src={filteredSumm.item4}></img>
+                                                <img src={filteredSumm.item5}></img>
+                                                <img src={filteredSumm.item6}></img>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                                <div>
+                                    {data.info.participants.filter(participant => participant.summonerName.toLowerCase() === summonerName.toLowerCase()).map(filteredSumm => {
+                                        return (
+                                            <div class="summoner">
+                                                {filteredSumm.summonerName}
+                                                <br></br>
+                                                <Tippy content={filteredSumm.championData[0].id}>
+                                                    <a>
+                                                        <img src={filteredSumm.championAsset}></img>
+                                                    </a>
+                                                </Tippy>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                                <div>
+                                    {data.info.participants.filter(participant => participant.summonerName.toLowerCase() === summonerName.toLowerCase()).map(filteredSumm => {
+                                        return (
+                                            <div>
+                                                {`${filteredSumm.kills} / ${filteredSumm.assists} / ${filteredSumm.deaths}`}
+                                                <br></br>
+                                                 
+                                            </div>
+                                        )
+                                    }) }
+                                </div>
+                                <div>
                                 {data.info.participants.filter(participant => participant.summonerName.toLowerCase() === summonerName.toLowerCase()).map(filteredSumm => {
-                                    return (
-                                        <div class="items">
-                                            <img src={filteredSumm.item0}></img>
-                                            <img src={filteredSumm.item1}></img>
-                                            <img src={filteredSumm.item2}></img>
-                                            <img src={filteredSumm.item3}></img>
-                                            <img src={filteredSumm.item4}></img>
-                                            <img src={filteredSumm.item5}></img>
-                                            <img src={filteredSumm.item6}></img>
-                                        </div>
-                                    )
-                                })}
-                                {data.info.participants.filter(participant => participant.summonerName.toLowerCase() === summonerName.toLowerCase()).map(filteredSumm => {
-                                    return (
-                                        <div class="summoner">
-                                            {filteredSumm.summonerName}
-                                            <br></br>
-                                            <Tippy content={filteredSumm.championData[0].id}>
-                                                <a>
-                                                    <img src={filteredSumm.championAsset}></img>
-                                                </a>
-                                            </Tippy>
-                                        </div>
-                                    )
-                                })}
+                                        return (
+                                            <div>
+                                                {data.info.gameMode}
+                                                <br></br>
+                                                {filteredSumm.win === true ? 'Victory' : 'Defeat'}
+                                                <br></br>
+                                            </div>
+                                        )
+                                    }) }
+                                </div>
                                 <div></div>
-                                <div></div>
-                                <div></div>
-                                <div >
+                                <div>
                                     <div class="teams">
                                         {data.info.participants.filter(summoner => summoner.win === true).map(filteredSumm => {
                                             return (
@@ -98,8 +122,10 @@ export function SummonerDetails(props) {
                                 </div>
                             </div>
                             <div key={index}>
-                            {console.log('match details: ' + JSON.stringify(showMatchDetails))}
-                            { showMatchDetails[index] ? <p>{index}</p> : null }
+                                {/* {console.log('match details: ' + JSON.stringify(showMatchDetails))} */}
+                                {showMatchDetails[index] ? 
+                                <MatchDetails summData={data} />
+                                : null}
                             </div>
                         </div>
                     )
