@@ -37,8 +37,12 @@ export function SummonerScreen() {
   if (isLoading) return <Spinner />;
   return (
     <div className="main-container">
-      <aside className="aside"></aside>
-      <div className="container-columns">
+      {/* <div className="container-columns"> */}
+      <div>
+        <aside className="aside">
+          <img src="https://leaguefeed.net/wp-content/uploads/2022/01/image-11.png" ></img>
+        </aside>
+        </div>
         <div className="container-one">
           <h1>{summName}</h1>
         </div>
@@ -51,7 +55,7 @@ export function SummonerScreen() {
             />
           }
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 }

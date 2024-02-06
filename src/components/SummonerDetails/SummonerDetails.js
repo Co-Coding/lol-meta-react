@@ -28,6 +28,7 @@ export function SummonerDetails(props) {
   return (
     <div className="summoner-details-body">
       {data.map((data, index) => {
+        console.log('data: ', data)
         return (
           <div className="summoner-details-container">
             <div
@@ -81,9 +82,17 @@ export function SummonerDetails(props) {
                     // console.log(filteredSumm.championData[0]?.id);
                     return (
                       <div className="summoner-div">
-                        <div className="summoner-name">
-                          <div>{filteredSumm.summonerName}</div>
+                        <div className="summoner-perks">
+                          <div>
+                            <img src={filteredSumm.perks.styles[0].image}></img>
+                          </div>
+                          <div>
+                            <img src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/BonePlating/BonePlating.png"></img>
+                          </div>
                         </div>
+                        {/* <div className="summoner-name">
+                          <div>{filteredSumm.summonerName}</div>
+                        </div> */}
                         <Tooltip
                           title={filteredSumm.championData[0]?.id}
                           placement="top"
